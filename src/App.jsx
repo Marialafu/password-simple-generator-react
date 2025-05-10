@@ -1,10 +1,12 @@
-import Button from './components/button/Button';
+import MainContent from "./components/mainContent/MainContent";
+
 
 const App = () => {
   return (
     <>
-      <Button />
-      <h1>React</h1>
+      <main className="passwordGenerator">
+        <MainContent/>
+      </main>
     </>
   );
 };
