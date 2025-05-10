@@ -12,9 +12,8 @@ const MainContent = () => {
     // const [numbersCheckbox, setNumbersCheckbox] = useState(false)
     // const [lowercaseCheckbox, setLowercaseCheckbox] = useState(false)
     // const [uppercaseCheckbox, setUppercaseCheckbox] = useState(false)
-
-    const includeSymbols = includeSymbolsInPassword(symbolsCheckbox)
-    const activatedButton = activateButton(symbolsCheckbox, setButtonValue)
+    
+    symbolsCheckbox ? setButtonValue(false) : setButtonValue(true)
     
 
     const passwordInputClass = 
@@ -64,23 +63,13 @@ const MainContent = () => {
           <div className={styles.checkboxGroup}>
             <p>Include Symbols</p>
             <input type="checkbox" id="symbols" className={styles.checkboxSwitch} 
-            onChange={setSymbolsCheckbox(!symbolsCheckbox)} />
+            onChange={() => setSymbolsCheckbox(!symbolsCheckbox)} />
             <label htmlFor="symbols" className={styles.switch} ></label>
           </div>
         </div>
-        <button disabled={activatedButton} className={buttonClass}>Generate password</button>
+        <button disabled={buttonValue} className={buttonClass}>Generate password</button>
     </>
     )
-}
-
-const activateButton = (symbolsCheckbox, setButtonValue) => {
-    if (symbolsCheckbox){
-        setButtonValue(false)
-    } else {setButtonValue(true)}
-}
-
-const includeSymbolsInPassword = (setSymbolsCheckbox) => {
-
 }
 
 export default MainContent
